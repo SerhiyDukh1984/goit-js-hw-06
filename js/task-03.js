@@ -24,7 +24,7 @@ const galeryEl = document.querySelector(".gallery");
 galeryEl.insertAdjacentHTML("afterBegin", makeImagesRow);
 console.log(galeryEl);
 
-Object.assign(document.querySelector(".gallery").style, {
+Object.assign(galeryEl.style, {
   display: "grid",
   gridTemplateColumns: "repeat(1, auto)",
   gap: "20px",
