@@ -14,12 +14,22 @@ const images = [
 ];
 
 const makeImageMarkup = (image) => {
-  return `<li><img src = '${image.url}' alt = '${image.alt}' width = '300'></img></li>`;
+  return `<li><img src = '${image.url}' alt = '${image.alt}' width = '300' heigth = '150'></img></li>`;
 };
 
 const makeImagesRow = images.map(makeImageMarkup).join("");
 
 const galeryEl = document.querySelector(".gallery");
+// galeryEl.style.display = "grid";
+// galeryEl.style.gridTemplateColumns = "repeat(3, auto)";
+// galeryEl.style.gap = "20px";
+// galeryEl.style.listStyle = "none";
 
 galeryEl.insertAdjacentHTML("afterBegin", makeImagesRow);
-console.log(galeryEl);
+Object.assign(document.querySelector(".gallery").style, {
+  display: "grid",
+  gridTemplateColumns: "repeat(1, auto)",
+  gap: "20px",
+  listStyle: "none",
+  height: "150",
+});
