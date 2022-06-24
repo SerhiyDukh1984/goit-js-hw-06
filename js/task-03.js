@@ -13,18 +13,13 @@ const images = [
   },
 ];
 
-const createItem = images.map((image) => {
-  const listEl = document.createElement("li");
-  const imageEl = document.createElement("img");
-  imageEl.src = image.url;
-  imageEl.alt = image.alt;
-  listEl.appendChild(imageEl);
-  console.log("🚀 ~ file: task-03.js ~ line 22 ~ createItem ~ listEl", listEl);
+const makeImageMarkup = (image) => {
+  return `<li><img src = '${image.url}' alt = '${image.alt}' width = '300'></img></li>`;
+};
 
-  return listEl;
-});
-// console.log(listEl);
+const makeImagesRow = images.map(makeImageMarkup).join("");
 
-// const imageSet = [...images].map((img) => createItem());
-const allImages = document.querySelector("galery");
-allImages.appendChild(...createItem);
+const galeryEl = document.querySelector(".gallery");
+
+galeryEl.insertAdjacentHTML("afterBegin", makeImagesRow);
+console.log(galeryEl);
