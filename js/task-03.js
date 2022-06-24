@@ -20,16 +20,9 @@ const makeImageMarkup = (image) => {
 const makeImagesRow = images.map(makeImageMarkup).join("");
 
 const galeryEl = document.querySelector(".gallery");
-// galeryEl.style.display = "grid";
-// galeryEl.style.gridTemplateColumns = "repeat(3, auto)";
-// galeryEl.style.gap = "20px";
-// galeryEl.style.listStyle = "none";
 
 galeryEl.insertAdjacentHTML("afterBegin", makeImagesRow);
-Object.assign(document.querySelector(".gallery").style, {
-  display: "grid",
-  gridTemplateColumns: "repeat(1, auto)",
-  gap: "20px",
-  listStyle: "none",
-  height: "150",
-});
+
+galeryEl.style.listStyle = "none";
+
+console.log(galeryEl);
