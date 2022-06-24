@@ -22,7 +22,11 @@ const makeImagesRow = images.map(makeImageMarkup).join("");
 const galeryEl = document.querySelector(".gallery");
 
 galeryEl.insertAdjacentHTML("afterBegin", makeImagesRow);
-
-galeryEl.style.listStyle = "none";
-
 console.log(galeryEl);
+
+Object.assign(document.querySelector(".gallery").style, {
+  display: "grid",
+  gridTemplateColumns: "repeat(1, auto)",
+  gap: "20px",
+  listStyle: "none",
+});
