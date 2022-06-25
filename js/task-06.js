@@ -1,16 +1,16 @@
-const input = document.querySelector("input");
+const inputEl = document.querySelector("input");
+const minLength = inputEl.getAttribute("data-length");
 
-input.addEventListener("focus", onFocus);
-input.addEventListener("blur", addInputValidation);
+inputEl.addEventListener("blur", makeInputValidation);
 
-function onFocus() {
-  input.classList.add("#validation-input");
-}
+function makeInputValidation(event) {
+  const value = event.currentTarget.value.length;
 
-function addInputValidation() {
-  if (input.textContent >= input.Length) {
-    input.classList.add("#validation-input.valid");
+  if (value <= 0) {
+    return (inputEl.style.borderColor = "#bdbdbd");
+  } else if (value < 6) {
+    inputEl.style.borderColor = "#f44336";
   } else {
-    input.classList.add("#validation-input.invalid");
+    inputEl.style.borderColor = "#4caf50";
   }
 }
