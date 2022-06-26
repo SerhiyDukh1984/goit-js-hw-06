@@ -1,16 +1,12 @@
-const inputEl = document.querySelector("input");
-const minLength = inputEl.getAttribute("data-length");
+const inputEl = document.querySelector("#validation-input");
+const minLength = inputEl.dataset.length;
 
 inputEl.addEventListener("blur", makeInputValidation);
 
 function makeInputValidation(event) {
-  const value = event.currentTarget.value.length;
-
-  if (value <= 0) {
-    return (inputEl.style.borderColor = "#bdbdbd");
-  } else if (value < 6) {
-    inputEl.style.borderColor = "#f44336";
+  if (`${event.currentTarget.value.length}` !== minLength) {
+    inputEl.classList.add("invalid");
   } else {
-    inputEl.style.borderColor = "#4caf50";
+    inputEl.classList.replace("invalid", "valid");
   }
 }
